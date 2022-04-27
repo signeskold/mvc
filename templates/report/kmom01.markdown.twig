@@ -1,0 +1,61 @@
+kmom01
+------
+
+<b>Berätta kort om dina förkunskaper och tidigare erfarenheter kring objektorientering.</b>
+<p>
+Tidigare har jag bl.a. gjort kursen "Objektorienterad design och programmering med
+Python" (oopython) så därigenom kändes många av idéerna bekanta.
+</p>
+
+<b>Berätta kort om PHPs modell för klasser och objekt. Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?</b>
+
+Klasser och objekt kan sägas vara de två grundpelarna inom objektorienterad programmering.
+PHP introducerade objektorienterad programmering i version 5.0, som kom år 2004.
+
+Vanliga exempel på objekt, i den verkliga världen, är bil och bankkonto. Dessa har två saker
+gemensamt, tillstånd och beteende. För en bil kan tillståndet svara mot märket,
+medan beteendet skulle kunna vara förmågan att köra. Motsvarande för ett bankkonto
+skulle kunna vara kontonummer respektive transaktioner.
+
+Konceptionellt är PHP-objekt uppbyggda på samma sätt. Ett objekt sparar sina tillstånd
+i variabler, s.k. medlemsvariabler. Om man vill ändra på tillståndet gör man det
+via funktioner, eller som det kallas i det här sammanhanget, metoder.
+
+En klass kan ses som en mall för objekt. Till exempel kan en bank, som har flera
+konton, ses som en klass. De enskilda kontona utgör då instanser av klassen.
+
+I PHP skulle vi kunna skapa en klass BankAccount och ett objekt $account på följande
+sätt:
+
+```<?php
+
+class BankAccount
+{
+    public $accountNumber;
+    public $balance;
+}
+
+$account = new BankAccount();
+
+$account->accountNumber = 30740565034;
+$account->balance = 2502;
+```
+
+<b>Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?</b>
+
+I tidigare kurser har vi använt flera olika ramverk. I början är det alltid svårt
+att orientera sig bland filerna, men om man får lite hjälp av traven, som i det
+här kursmomentet, brukar det klarna. Det gick lätt att plocka koddelar från ramverk
+i tidigare kurser, som exempelvis sidhuvud och sidfot från databaskursen. css-filen
+har också hängt med i flera kurser.
+
+<b>Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? Är det några särskilda områden som du känner att du vill veta mer om? Lyft fram några delar av artikeln som du känner mer värdefulla.</b>
+
+Jag läste innehållsförteckningen och ögnade igenom några sidor. Artikeln får snarare
+ses som referenslitteratur än något man sträckläser. Just i det här kursmomentet
+har jag inte känt något behov av artikeln, men det är mycket möjligt att jag kommer
+att återvända till den i kommande moment.
+
+<b>Vilken är din TIL för detta kmom?</b>
+
+Med Symfony har vi ytterligare ett ramverk att tillgå om vi snabbt vill konstruera en webbsida.

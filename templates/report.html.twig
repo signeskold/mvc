@@ -1,0 +1,23 @@
+{# templates/report.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}Rapporter{% endblock %}
+
+{% block content %}
+{% apply markdown_to_html %}
+Rapporter
+=========
+
+Här följer rapporterna för de olika kursmomenten.
+{% endapply %}
+
+{{ include('report/kmom01.markdown.twig')|markdown_to_html }}
+{{ include('report/kmom02.markdown.twig')|markdown_to_html }}
+{{ include('report/kmom03.markdown.twig')|markdown_to_html }}
+{{ include('report/kmom04.markdown.twig')|markdown_to_html }}
+{{ include('report/kmom05.markdown.twig')|markdown_to_html }}
+{{ include('report/kmom06.markdown.twig')|markdown_to_html }}
+{{ include('report/kmom07.markdown.twig')|markdown_to_html }}
+
+{% endblock %}

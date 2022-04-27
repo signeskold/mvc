@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset("favicon.ico") }}">
+        <link rel="stylesheet" href="{{ asset("css/style.css") }}"/>
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="row">
+                <div class="colsh">
+                    <img src="{{ asset("img/mvc.png") }}" alt="logo" width="60px"/>
+                </div>
+                <div class="colshc">
+                    <span class="site-title">Välkommen till kursen mvc</span>
+                    <span class="site-slogan">– objektorienterade webbteknologier</span>
+                </div>
+            </div>
+            <div class="topnav">
+                <a href="{{ url("home") }}">Hem</a>
+                <a href="{{ url("about") }}">Om</a>
+                <a href="{{ url("report") }}">Rapport</a>
+            </div>
+        </header>
+        <main>
+
+            {% block content %}
+            Default contents
+            {% endblock %}
+
+        </main>
+        <footer class="site-footer">
+            <hr>
+            <div class="row">
+                <div class="colfl">
+                    <b>Signe Sköld - student på<br>Blekinge Tekniska Högskola
+                </div>
+                <div class="colfc">
+                    <img src="{{ asset("img/oops.png") }}" alt="oop" width="100px"/><br>
+                    I did it again...
+                </div>
+                <div class="colfr">
+                    <b>Kontakt:</b><br>sisl19@student.bth.se
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
