@@ -1,0 +1,63 @@
+{# templates/card/draw.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Cards{% endblock %}
+
+{% block content %}
+
+<br>
+
+{{ include('card/cardnav.html.twig') }}
+
+<h1>{{ title }}</h1>
+
+<div style="font-size:72px;">
+{% for card in table %}
+{% if loop.index <= ontable %}
+{% if 'F0A' in card or 'F0D' in card %}
+    <div style="display: inline-block; color: black;">
+{% else %}
+    <div style="display: inline-block; color: red;">
+{% endif %}
+        {{ card|raw }}
+    </div>
+{% endif %}
+{% endfor %}
+{% if indeck > 0 %}
+    <div style="display: inline-block; color: blue;">
+        {{ cardback|raw }}
+    </div>
+{% endif %}
+</div>
+
+<div class="flash-messages">
+
+{{ include('block/flash-message.html.twig') }}
+
+</div>
+{% if redraw==1 and link_to_draw is defined %}
+    <form method="post" class="form">
+        <fieldset>
+        <legend>Dra antal kort</legend>
+        <p>
+            <input type="number" name="number" value="1">
+            <a href="{{ link_to_draw }}">
+                <input type="submit" name="draw" value="Dra antal kort" min="1">
+            </a>
+        </p>
+
+        </fieldset>
+    </form>
+{% endif %}
+<div class="messages">
+
+{% if indeck>0 %}
+    Det finns {{ indeck }} kort kvar i kortleken!
+{% else %}
+    Det finns inga kort kvar i kortleken!
+{% endif %}
+
+</div>
+
+{% endblock %}

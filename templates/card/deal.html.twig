@@ -1,0 +1,59 @@
+{# templates/card/deal.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Card{% endblock %}
+
+{% block content %}
+
+<br>
+
+{{ include('./card/cardnav.html.twig') }}
+
+<h1>{{ title }}</h1>
+
+{% for hands in table %}
+    <h3>Spelare {{ loop.index }}</h3>
+    <div style="font-size:72px;">
+        {% for card in hands %}
+            {% if 'F0A' in card or 'F0D' in card %}
+                <div style="display: inline-block; color: black;">
+            {% else %}
+                <div style="display: inline-block; color: red;">
+            {% endif %}
+            {{ card|raw }}
+                </div>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+<div class="flash-messages">
+    {{ include('block/flash-message.html.twig') }}
+</div>
+
+{% if redraw==1 %}
+<form method="post" class="form">
+    <fieldset>
+        <legend>Antal spelare och kort per hand</legend>
+        <p>
+            <label for="players">Antal spelare:</label><br>
+            <input type="number" name="players" value="1" min="1"><br>
+            <label for="cards">Antal kort:</label><br>
+            <input type="number" name="cards" value="1" min="1"><br><br>
+{% endif %}
+{% if redraw<2 %}
+            <a href="{{ link_to_play }}">
+                <input type="submit" name="draw" value="Ny giv" min="1">
+            </a>
+{% endif %}
+{% if redraw==1 %}
+        </p>
+    </fieldset>
+</form>
+{% endif %}
+
+<div class="messages">
+    Det finns {{ left }} kort kvar!
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+
+<h1>Sökning</h1>
+
+<form>
+    <p>
+        <label>Search:
+            <input type="search" name="search" value="{{ search }}">
+        </label>
+    </p>
+</form>
+
+{% endblock %}

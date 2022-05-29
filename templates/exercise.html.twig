@@ -1,0 +1,30 @@
+{# templates/exercise.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Övningar{% endblock %}
+
+{% block content %}
+<h1>Övningar</h1>
+
+<h4>Formulär</h4>
+
+<nav class="navbar">
+<ul>
+<li><a href="{{ path("form-login") }}">Inloggning</a></li>
+<li><a href="{{ path("form-search") }}">Sök</a></li>
+<li><a href="{{ path("form-session") }}">Session</a></li>
+</ul>
+</nav>
+
+<h4>Tärningar</h4>
+
+<nav class="navbar">
+<ul>
+<li><a href="{{ path("dice-home") }}">Ett kast</a></li>
+<li><a href="{{ path("dice-hand-home") }}">En hand</a></li>
+<li><a href="{{ path("dice-graphic-home") }}">Grafik</a></li>
+</ul>
+</nav>
+
+{% endblock %}

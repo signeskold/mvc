@@ -3,8 +3,49 @@ kmom02
 
 <b>Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.</b>
 
+Objektorienterad programmering baseras på konceptet klasser och objekt. En klass
+är en samling variabler och funktioner (i det här sammanhanget kallade metoder)
+som tillsammans utför en eller flera specifika uppgifter, medan objekt är
+instanser av klasser.
+
+Klasser kan ärva egenskaper och metoder från en annan klasser. ***Arv*** låter en klass
+återanvända kod från en annan klass utan att duplicera koden.
+
+***Komposition*** är också en typ av relation mellan klasser, som låter en klass
+innehålla en annan. Medan arv kan sägas vara en "är en"-relation, är komposition
+snarare en "har en"-relation.
+
+"***Interfaces***", eller gränssnitt, låter oss ha en "har en"-relation mellan klasser.
+Istället för att definiera en klass för varje samband, definierar vi "interfaces".
+
+En begränsning i PHP är att en klass bara kan ärva från **en** annan klass. För
+att delvis avhjälpa detta införde man i PHP 5.4 begreppet "traits" (egenskaper).
+"***Traits***" låter oss återanvända metoder från många olika klasser som inte behöver
+vara i samma hierarki.
+
 <b>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden och dina klasser?</b>
+
+Efter en trög start fick jag till ett slutresultat som jag är ganska nöjd med.
+I klasserna för kort och kortlek definierade jag olika metoder som kom till
+användning i koden. Jag försökte också införa klasser för hand och spelare, men
+jag såg aldrig något behov av dessa i den här uppgiften. Kanske kommer de till
+användning i den kommande kortspelsuppgiften. Så småningom insåg jag att det är
+onödigt att skyffla kort mellan två högar när man skall dra kort. Istället räcker
+det att hålla reda på hur många kort som har dragits och visa så många ur kortleken.
+
+Jag funderade på om jag skulle använda bildfiler för korten, men till slut blev
+det "unicode".
 
 <b>Berätta hur det kändes att modellera ett kortspel med flödesdiagram och psuedokod. Var det något som du tror stödjer dig i din problemlösning och tankearbete för att strukturera koden kring en applikation?</b>
 
+Jag väntar med kortspelet till kursmoment 3, men jag har funderat och skissat en
+del på hur jag skall lösa uppgiften. Det finns så många varianter på 21 och
+Blackjack, så det första man måste göra är att bestämma reglerna in i minsta
+detalj. Hur mycket är de klädda korten värda? Hur många spelare skall man tillåta?
+Hur många kortlekar? Skall pengar satsas? Om man inte blandar om efter varje omgång,
+hur gör man då när man kommer till slutet av kortleken? Det blir många frågor,
+som man får försöka finna svar på när man gör sitt flödesdiagram.
+
 <b>Vilken är din TIL för detta kmom?</b>
+
+I det här kursmomentet har jag fått en bättre förståelse för klasser.

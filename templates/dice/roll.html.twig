@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Dice{% endblock %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+
+<p>The dice are rolled {{ numRolls }} times.</p>
+
+<ul>
+    {% for roll in rolls %}
+        <li>{{ roll }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

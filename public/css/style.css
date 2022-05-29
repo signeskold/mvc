@@ -215,7 +215,8 @@ p.clear {
     clear: both;
 }
 
-.topnav {
+.topnav,
+.subnav {
     overflow: hidden;
     box-shadow: 0px 10px 14px -7px #800000;
     background: linear-gradient(to bottom, #990000 5%, #850000 100%);
@@ -228,7 +229,14 @@ p.clear {
     text-shadow: 0px 1px 0px #3d768a;
 }
 
-.topnav a {
+.subnav {
+    background: linear-gradient(to bottom, #999900 5%, #858500 100%);
+    background-color: #999900;
+    font-size: 12px;
+}
+
+.topnav a,
+.subnav a {
     float: left;
     color: #f2f2f2;
     text-align: center;
@@ -238,12 +246,19 @@ p.clear {
     font-weight: bold;
 }
 
-.topnav a:hover {
+.subnav a {
+    font-size: 11px;
+}
+
+
+.topnav a:hover,
+.subnav a:hover {
     background-color: #d3d3d3;
     color: black;
 }
 
-.topnav a.active {
+.topnav a.active,
+.subnav a.active {
     background-color: #cbdfe7;
     color: black;
 }
@@ -485,6 +500,16 @@ input[type=submit]:hover {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 16px;
+}
+
+.flash-notice {
+    color: #0040ff;
+}
+
+.flash-warning {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffbf00;
 }
 
 /* Change styles for span and cancel button on extra small screens */
