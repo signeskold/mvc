@@ -1,0 +1,68 @@
+{# templates/game/play.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}21{% endblock %}
+
+{% block content %}
+
+<br>
+
+{{ include('game/gamenav.html.twig') }}
+<br>
+<form method="post">
+    <fieldset>
+    <legend>Meny</legend>
+    <p>
+        <input type="submit" name="shuffle" value="Blanda">
+        <input type="submit" name="new" value="Ny omgång">
+        <input type="submit" name="hit" value="Fortsätt">
+        <input type="submit" name="stand" value="Stanna">
+    </p>
+    {{ include('form/flash-message.html.twig') }}
+
+    </fieldset>
+</form>
+
+<h3>Spelare</h3>
+<div style="font-size:72px;">
+{% for card in play %}
+    {% if 'F0A' in card or 'F0D' in card %}
+        <div style="display: inline-block; color: black;">
+    {% else %}
+        <div style="display: inline-block; color: red;">
+    {% endif %}
+    {{ card|raw }}
+        </div>
+{% endfor %}
+{% if winner == 0 %}
+<div style="display: inline-block;">
+    <img class="mucont_image" src="{{ asset("img/winner.png") }}" alt="Vinnare!">
+</div>
+{% endif %}
+</div>
+
+<h3>Bank</h3>
+<div style="font-size:72px;">
+{% for card in bank %}
+    {% if 'F0A' in card or 'F0D' in card %}
+        <div style="display: inline-block; color: black;">
+    {% else %}
+        <div style="display: inline-block; color: red;">
+    {% endif %}
+    {{ card|raw }}
+        </div>
+    {% endfor %}
+    {% if indeck > 0 %}
+        <div style="display: inline-block; color: blue;">
+            {{ cardback|raw }}
+        </div>
+    {% endif %}
+    {% if winner == 1 %}
+    <div style="display: inline-block;">
+        <img class="mucont_image" src="{{ asset("img/winner.png") }}" alt="Vinnare!">
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

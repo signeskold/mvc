@@ -1,0 +1,36 @@
+{# templates/game.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}21{% endblock %}
+
+{% block content %}
+
+<br>
+
+{{ include('game/gamenav.html.twig') }}
+
+<br><br>
+<h1>21 - spelregler</h1>
+<div class="mucont">
+<img class="mucont_image" src="{{ asset("img/tjugoett.png") }}" alt="Kortspelet 21.">
+<div class="mucont_text">
+
+<p>Spelets idé är att med två eller flera kort försöka uppnå det sammanlagda värdet 21,
+eller komma så nära som möjligt utan att överskrida 21. Essen är värda valfritt 1 eller 11
+och de klädda korten 10. Nummerkorten har samma värden som valören.</p>
+
+<p>Spelet börjar med att banken ger spelaren två kort. Spelaren spelar sedan mot
+banken och kan begära nya kort, ett i taget.</p>
+
+<p>Är summan av spelarens kort större än 21 har spelaren ”spruckit” eller ”blivit tjock”
+och förlorar. Om summan är under 21 kan spelaren antingen förklara sig nöjd eller begära
+ytterligare kort för att komma närmare 21, men då också riskera att spricka.</p>
+
+<p>Om spelaren förklarat sig nöjd, skall banken straffa spelaren, det vill säga spela
+ut egna kort från leken, ett i taget med framsidan uppåt. Spricker banken, vinner
+spelaren. När banken förklarat sig nöjd, vinner den som har högst poängsumma. Om båda har
+lika är det banken som vinner.</p>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{# templates/game/doc.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}21{% endblock %}
+
+{% block content %}
+
+<br>
+
+{{ include('game/gamenav.html.twig') }}
+<br><br>
+<h1>Spelregler</h1>
+<div class="mucont">
+<img class="mucont_image" src="{{ asset("img/tjugoett.png") }}" alt="Kortspelet 21">
+<div class="mucont_text">
+
+<p>Spelets idé är att med två eller flera kort försöka uppnå det sammanlagda värdet 21,
+eller komma så nära som möjligt utan att överskrida 21. Essen är värda valfritt 1 eller 11
+och de klädda korten 10. Nummerkorten har samma värden som valören.</p>
+
+<p>Spelet börjar med att banken ger spelaren två kort. Spelaren spelar sedan mot
+banken och kan begära nya kort, ett i taget.</p>
+
+<p>Är summan av spelarens kort större än 21 har spelaren ”spruckit” eller ”blivit tjock”
+och förlorar. Om summan är under 21 kan spelaren antingen förklara sig nöjd eller begära
+ytterligare kort för att komma närmare 21, men då också riskera att spricka.</p>
+
+<p>Om spelaren förklarat sig nöjd, skall banken straffa spelaren, det vill säga spela
+ut egna kort från leken, ett i taget med framsidan uppåt. Spricker banken, vinner
+spelaren. När banken förklarat sig nöjd, vinner den som har högst poängsumma. Om båda har
+lika är det banken som vinner.</p>
+</div>
+</div>
+<h1>Flödesschema</h1>
+<img class="mucont_image" src="{{ asset("img/flowchart21.png") }}" alt="Flödesschema">
+<h1>Pseudokod</h1>
+
+<ul>
+    <li>Skapa en standardkortlek med fyra färger och valörerna ess, 2-10, knekt, dam och kung
+    i varje.</li>
+    <li>Blanda kortleken.</li>
+    <li>Dela ut två kort till spelaren.</li>
+    <li>Låt spelaren få ett nytt kort i taget tills denne är nöjd eller blir tjock.</li>
+    <li>Ess räknas som ett eller elva, vilket som ger en poängsumma närmast under 22.
+    Klädda kort är värda tio poäng.</li>
+    <li>Låt banken dra kort så länge poängsumman är under 17.</li>
+    <li>Banken vinner om spelaren är tjock eller banken har minst lika många poäng som spelaren,
+    utan att vara tjock.</li>
+    <li>Om korten tar slut, avbryts omgången och kortleken må blandas på nytt.</li>
+</ul>
+
+<h1>Klasser</h1>
+
+<h3>Card</h3>
+Klassen <b>Card</b> definierar ett spelkort.
+<br><br>
+Metoder:
+<h5>getValue21</h5>
+Adderar ett korts värde till poängsumman.
+<h5>showCard</h5>
+Returnerar ett korts "unicode".
+<h5>showCardBack</h5>
+Returnerar "unicode" för en kortbaksida.
+<h3>Deck</h3>
+Klassen <b>Deck</b> definierar en kortlek med fyra färger och 13 valörer i varje.
+<br><br>
+Metoder:
+<h5>getDeck</h5>
+Returnerar en kortlek.
+<h5>drawCard</h5>
+Drar bort det översta kortet i kortleken.
+<h5>shuffleDeck</h5>
+Blandar kortleken.
+<h5>noOfCardsInDeck</h5>
+Returnerar antalet kvarvarande kort i kortleken.
+{% endblock %}

@@ -17,7 +17,6 @@ class CardJsonController
     */
     public function deckjson(): response
     {
-        $deckArray = [];
         $cards = new \App\Card\Deck();
         $data = [
             'title' => 'Sorterad kortlek',
@@ -34,7 +33,6 @@ class CardJsonController
     */
     public function shufflejson(SessionInterface $session): response
     {
-        $deckArray = [];
         $cards = new \App\Card\Deck();
         $cards->shuffleDeck();
         $session->set("cards", NULL);
@@ -56,10 +54,9 @@ class CardJsonController
     /**
     * @Route("/card/api/deck/draw", name="card-api-deck-draw", methods={"GET", "POST"})
     */
-    public function drawjson (Request $request,SessionInterface $session): response
+    public function drawjson (SessionInterface $session): response
     {
         $tableArray = [];
-        $redraw = 0;
         if ($session->get("cards")) {
             $cards = $session->get("cards");
         }
@@ -67,7 +64,6 @@ class CardJsonController
             $cards = new \App\Card\Deck();
             $cards->shuffleDeck();
         }
-        $redraw = 0;
         $cardsInDeck = $cards->noOfCardsInDeck();
         if ($cardsInDeck > 0) {
             $deck = $cards->getDeck();
@@ -96,7 +92,7 @@ class CardJsonController
     /**
     * @Route("/card/api/deck/draw/{cardsToDraw}", name="card-api-deck-draw-number", methods={"GET", "POST"})
     */
-    public function drawnumberjson(Request $request, SessionInterface $session, int $cardsToDraw = 1): response
+    public function drawnumberjson(SessionInterface $session, int $cardsToDraw = 1): response
     {
         $tableArray = [];
         //$cardsToDraw = $request->request->get('number') ?? 0;
@@ -107,7 +103,6 @@ class CardJsonController
             $cards = new \App\Card\Deck();
             $cards->shuffleDeck();
         }
-        $redraw = 0;
         $cardsInDeck = $cards->noOfCardsInDeck();
         if ($cardsInDeck >= $cardsToDraw) {
             $deck = $cards->getDeck();
@@ -142,7 +137,7 @@ class CardJsonController
     * @Route("/card/api/deck/deal/{cardsInHand}/{noOfHands}", name="card-api-deck-deal-players-cards", methods={"GET", "POST"}
     * )
     */
-    public function deal(Request $request, SessionInterface $session, int $cardsInHand=1, int $noOfHands=1): response
+    public function deal(SessionInterface $session, int $cardsInHand=1, int $noOfHands=1): response
     {
         if ($session->get("cardsinhand" || $cardsInHand!=1)) {
             $cardsInHand = $session->get("cardsinhand");
@@ -151,7 +146,6 @@ class CardJsonController
             $noOfHands = $session->get("noofhands");
         }
         $cardsInDeal = $cardsInHand * $noOfHands;
-        $redraw = 0;
         $handArray = [];
         $tableArray = [];
         reset($handArray);

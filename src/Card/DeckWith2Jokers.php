@@ -9,8 +9,8 @@ class DeckWith2Jokers extends Deck {
 
         // Add jokers
         for ($i = 0; $i < $numJokers; $i++) {
-            $c = $i%2 ? 'B' : 'D';
-            $this->deck[] = new Card($c, 'F');
+            $col = $i%2 ? 'B' : 'D';
+            $this->deck[] = new Card($col, 'F');
         }
     }
 }

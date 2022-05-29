@@ -50,7 +50,7 @@ class CardController extends AbstractController
     /**
     * @Route("/card/deck/draw", name="card-deck-draw", methods={"GET", "POST"})
     */
-    public function draw (Request $request,SessionInterface $session): response
+    public function draw (SessionInterface $session): response
     {
         if ($session->get("cards")) {
             $cards = $session->get("cards");
@@ -197,7 +197,7 @@ class CardController extends AbstractController
             'table' => $tableArray,
             'redraw' => $redraw,
             'link_to_play' => $this->generateUrl('card-deck-deal-players-cards',
-                ['cards' => $cardsInHand, 'players' => $noOfHands]),
+                ['cards' => $cardsInHand, 'players' => $noOfHands])
         ];
 
         return $this->render('card\deal.html.twig', $data);
